@@ -1,1 +1,0 @@
-este es otro gato es {{$minombre}} {{$miapellido}}
