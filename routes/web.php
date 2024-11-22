@@ -3,21 +3,19 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
-use App\Models\Medicamentos;  // Importar el modelo
-use App\Models\Computer;  // Importar el modelo
-
+use App\Http\Controllers\WeatherController;
+use App\Models\Medicamentos;
+use App\Models\Computer;
 use Faker\Provider\Medical;
 
+// Ruta para la página principal (home)
 Route::get('/', function () {
     return view('index');
 });
 
-
-// routes/web.php
-
+// Rutas del dashboard
 Route::get('/{page}', [PageController::class, 'show'])->name('page.show')
     ->where('page', 'index|ui-elements|tables|forms');
 
-//AHORA NO DARÁ RESULTADO PORQUE LAS ENTRADAS DE format Y DE diffForHumans DEBEN 
-//DE SER VALORES TIMESTAMP
-
+// Ruta para el clima (Weather)
+Route::get('/weather', [WeatherController::class, 'show'])->name('weather.show');
